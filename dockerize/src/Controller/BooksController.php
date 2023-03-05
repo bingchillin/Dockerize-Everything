@@ -9,6 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\BookRepository;
 use App\Entity\Book;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use App\Form\BookType;
 
 class BooksController extends AbstractController
 {
@@ -37,5 +39,27 @@ class BooksController extends AbstractController
 
         $this->addFlash('success', 'La voiture a bien été supprimée');
         return $this->redirectToRoute('app_books');
+    }
+
+    #[Route('/books/add', name: 'add_book', methods: ['GET', 'POST'])]
+    public function add(Request $request, EntityManagerInterface $manager): Response
+    {
+
+        $book = new Book();
+        $form = $this->createForm(BookType::class, $book);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $book = $form->getData();
+            $manager->persist($book);
+            $manager->flush();
+
+            $this->addFlash('success', 'Le livre a bien été ajouté');
+            return $this->redirectToRoute('app_books');
+        }
+        return $this->render('books/add.html.twig', [
+            'controller_name' => 'BooksController',
+            'form' => $form->createView()
+        ]);
     }
 }
