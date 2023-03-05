@@ -40,7 +40,7 @@ class Book
 
     #[ORM\Column(nullable: true)]
     #[Assert\Length(min: 1)]
-    private ?int $read_count = null;
+    private ?int $browse = null;
 
     public function getId(): ?int
     {
@@ -107,14 +107,14 @@ class Book
         return $this;
     }
 
-    public function getReadCount(): ?int
+    public function getBrowse(): ?int
     {
-        return $this->read_count;
+        return $this->browse;
     }
 
-    public function setReadCount(?int $read_count): self
+    public function setBrowse(?int $browse): self
     {
-        $this->read_count = $read_count;
+        $this->browse = $browse;
 
         return $this;
     }

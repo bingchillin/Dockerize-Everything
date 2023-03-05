@@ -8,13 +8,38 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Kenny/Desktop/ECOLE/COURS/3EME ANNEE/GIT/PROJET/Dockerize-Everything/dockerize/src/Controller/BooksController.php'|file_link(0) }}">src/Controller/BooksController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Kenny/Desktop/ECOLE/COURS/3EME ANNEE/GIT/PROJET/Dockerize-Everything/dockerize/templates/books/index.html.twig'|file_link(0) }}">templates/books/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <h1>Mes livres </h1>
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Isbn</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Auteur</th>
+      <th scope="col">Résumé</th>
+      <th scope="col">Image</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Modifier</th>
+      <th scope="col">Supprimer</th>
+    </tr>
+  </thead>
+  {% for book in books %}
+  <tbody>
+    <tr class="table-secondary">
+      <th scope="row">{{book.isbn}}</th>
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.overview}}</td>
+      <td>{{book.picture}}</td>
+      <td>{{book.browse}}</td>
+      <td><button type="button" class="btn btn-warning">Modifier</button></td>
+      <td><button type="button" class="btn btn-danger" onclick="window.location.href='{{ path('delete_book', { id: book.id}) }}';">Supprimer</button></td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+
+   
 {% endblock %}
