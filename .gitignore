@@ -1,5 +1,13 @@
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,windows,git,symfony
-# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,windows,git,symfony
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,windows,git,symfony,composer,github
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,windows,git,symfony,composer,github
+
+### Composer ###
+composer.phar
+/vendor/
+
+# Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
+# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
+# composer.lock
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -15,6 +23,8 @@
 *_BASE_*.txt
 *_LOCAL_*.txt
 *_REMOTE_*.txt
+
+#!! ERROR: github is undefined. Use list command to see defined gitignore types !!#
 
 ### Symfony ###
 # Cache and logs (Symfony2)
@@ -48,7 +58,6 @@
 /bin/*
 !bin/console
 !bin/symfony_requirements
-/vendor/
 
 # Assets and user uploads
 /web/bundles/
@@ -119,4 +128,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,windows,git,symfony
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,windows,git,symfony,composer,github
