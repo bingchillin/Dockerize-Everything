@@ -33,7 +33,7 @@
       <td>{{book.overview}}</td>
       <td>{{book.picture}}</td>
       <td>{{book.browse}}</td>
-      <td><button type="button" class="btn btn-warning">Modifier</button></td>
+      <td><button type="button" class="btn btn-warning" onclick="window.location.href='{{ path('edit_book', { id: book.id}) }}';">Modifier</button></td>
       <td><button type="button" class="btn btn-danger" onclick="window.location.href='{{ path('delete_book', { id: book.id}) }}';">Supprimer</button></td>
     </tr>
     {% endfor %}

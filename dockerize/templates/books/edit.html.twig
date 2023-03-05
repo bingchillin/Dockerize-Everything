@@ -1,0 +1,62 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<div class="container">
+<h1 class="mt-4">Modification du livre</h1>
+
+{{form_start(book)}}
+
+<div class="form-group">
+{{ form_label(book.isbn)}}
+{{ form_widget(book.isbn)}}
+<div class="form-error">
+{{ form_errors(book.isbn)}}
+</div>
+</div>
+
+<div class="form-group">
+    {{ form_label(book.title)}}
+    {{ form_widget(book.title)}}
+    <div class="form-error">
+    {{ form_errors(book.title)}}
+    </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(book.author)}}
+        {{ form_widget(book.author)}}
+        <div class="form-error">
+        {{ form_errors(book.author)}}
+        </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(book.overview)}}
+            {{ form_widget(book.overview)}}
+            <div class="form-error">
+            {{ form_errors(book.overview)}}
+            </div>
+            </div>
+
+     <div class="form-group">
+         {{ form_label(book.picture)}}
+                {{ form_widget(book.picture)}}
+                <div class="form-error">
+                {{ form_errors(book.picture)}}
+                </div>
+                </div>
+
+     <div class="form-group">
+        {{ form_label(book.browse)}}
+         {{ form_widget(book.browse)}}
+         <div class="form-error">
+         {{ form_errors(book.browse)}}
+          </div>
+            </div>
+
+           
+          {{ form_end(book)}}
+          </div>
+
+          {% endblock %}
